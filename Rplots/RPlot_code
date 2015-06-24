@@ -1,0 +1,26 @@
+######################
+R plots code Summary:
+######################
+
+#######################
+  Ramachandran Plots
+#######################
+protein8= read.table("//Users/chem_student/Pushes/HM-Ramachandran/nbs/4LGL.txt", header=TRUE)
+
+plot(protein8$phi,protein8$psi, xlim = c(-180,180), ylim = c(-180,180), xlab = expression(phi), ylab = expression(psi), col="red", pch = 21, cex=0.5, asp=1)
+
+#########################
+    Dihedral Graphs
+#########################
+
+plot(fch1ch1p_nmrs$mids,energies, type="l", axes=FALSE,xlab = "",ylab = "")
+axis(4,0:4)
+mtext("Energy",side = 4, outer=TRUE)
+mtext("DSE(kcal mol^-1)",side = 4, cex=1, line=3)
+par(new=T)
+plot(fch1ch1p_nmrs$mids, fch1ch1p_nmrs$density, type="l", col="green", axes=FALSE, xlab = "", ylab = "")
+par(new=T)
+plot(a$mids,a$counts/14000, type= "l", col="red", ylim = c(0, 0.20), xlim = c(-180, 180), xlab = "Dihedral", ylab= "Probability", las=1, main = "Χ1:Χ1' Graphs")
+energies<-(2*(1+cos(3*fch1ch1p$mids*pi/180)))
+plot(fch1ch1p$mids,energies,type="l", col="blue", axes = FALSE, bty="n", xlab = "", ylab = "")
+legend(x=-235,y=5.10, legend=c("Density(xtals)","Energy(xtals)","Density(NMRS)","Energy(NMRS"),xpd=TRUE, horiz=TRUE,col = c("Red", "Blue", "Green", "Black"),lty = 1,bty="n", cex=0.5)
